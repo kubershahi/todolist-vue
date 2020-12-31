@@ -1,16 +1,16 @@
 <template>
-  <Hello msg="Welcome to Hello App"/>
-  <Todos />
+  <!-- <Hello msg="Welcome to Hello App"/> -->
+  <Todos v-bind:todos="todos"/>
 </template>
 
 <script>
-import Hello from './components/Hello.vue'
+// import Hello from './components/Hello.vue'
 import Todos from './components/Todos.vue'
 
 export default {
   name: 'App',
   components: {
-    Hello,
+    // Hello,
     Todos,
   },
   data(){
