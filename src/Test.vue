@@ -1,20 +1,20 @@
 <template>
-  <Hello msg="Welcome to Hello App"/>
+  <HelloWorld msg="Welcome to this App"/>
 </template>
 
 <script>
-import Hello from './components/Hello.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    Hello
+    HelloWorld
   }
 }
 </script>
 
 <style>
-#app {
+#test {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
