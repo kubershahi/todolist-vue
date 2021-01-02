@@ -1,17 +1,23 @@
 <template>
   <!-- <Hello msg="Welcome to Hello App"/> -->
-  <Todos v-bind:todos="todos"/>
+  <Header/>
+  <AddTodo v-on:add-todo="addTodo"/>
+  <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/>
 </template>
 
 <script>
 // import Hello from './components/Hello.vue'
 import Todos from './components/Todos.vue'
+import Header from './components/layout/Header.vue'
+import AddTodo from './components/AddTodo.vue'
 
 export default {
   name: 'App',
   components: {
     // Hello,
     Todos,
+    Header,
+    AddTodo,
   },
   data(){
     return{
@@ -33,6 +39,14 @@ export default {
         }
       ]
     } 
+  },
+  methods:{
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    addTodo(newTodo) {
+      this.todos = [...this.todos, newTodo] 
+    }
   }
 }
 </script>
