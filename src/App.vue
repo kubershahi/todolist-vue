@@ -1,73 +1,32 @@
 <template>
-  <!-- <Hello msg="Welcome to Hello App"/> -->
-  <Header/>
-  <AddTodo v-on:add-todo="addTodo"/>
-  <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/>
+  <Header />
+  <router-view/>
 </template>
 
 <script>
-import axios from 'axios'
-// import Hello from './components/Hello.vue'
-import Todos from './components/Todos.vue'
-import Header from './components/layout/Header.vue'
-import AddTodo from './components/AddTodo.vue'
+import Header from './views/Header.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    // Hello,
-    Todos,
     Header,
-    AddTodo,
-  },
-  data(){
-    return{
-      todos: [ ]
-    } 
-  },
-  methods:{
-    deleteTodo(id) {
-      axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then( res => this.todos = this.todos.filter(res.data.id !== id))
-        .catch( error => console.log(error))
-
-    },
-    addTodo(newTodo) {
-      const { title, completed } = newTodo
-
-      axios.post('https://jsonplaceholder.typicode.com/todos',{ title, completed })
-        .then( res => this.todos = [...this.todos, res.data] )
-        .catch( error => console.log(error))
-    }
-  },
-  created(){
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-      .then(res => this.todos = res.data)
-      .catch( error => console.log(error))
-
   }
 }
 </script>
-
 <style>
-  * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   body {
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
+    line-height: 1.3;
   }
-  .btn {
-    display: inline-block;
-    border: none;
-    background: #555;
-    color: #fff;
-    padding: 7px 20px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background: #666;
-  }
+
+#app {
+  text-align: center;
+  color: #057af0;
+}
+
 </style>

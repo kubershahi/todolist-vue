@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="addto">
     <form @submit="addTodo">
       <input type="text" v-model="title" name="title" placeholder="Add Todo List">
       <input type="submit" value="Submit" class="btn">
@@ -36,12 +36,16 @@ export default {
 </script>
 
 <style scoped>
+
+  #addto {
+    padding: 10px;
+  }
   form {
     display: flex;
   }
   input[type="text"] {
     flex: 10;
-    padding: 5px;
+    padding: 10px;
   }
   input[type="submit"] {
     flex: 2;
